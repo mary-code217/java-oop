@@ -3,18 +3,19 @@ import java.util.stream.Stream;
 
 public class GuGuDanApplicationV1 {
     public static void main(String[] args) {
-        boolean isEnd = false;
-        while(!isEnd) {
+        Scanner sc = new Scanner(System.in);
+        boolean end = false;
+        while(!end) {
             try {
-                int dan = InputValue.consoleInputValue();
+                int dan = InputValue.consoleInputValue(sc);
 
                 Validation.validDan(dan);
 
-                Calculator.CalculateGuGuDan(dan);
+                Calculator.calculateGuGuDan(dan);
 
-                isEnd = PlayHandler.playOrEnd();
+                end = PlayHandler.playOrEnd(sc);
             } catch (Exception e) {
-                Validation.ClearInputValue();
+                Validation.clearInputValue(sc);
             }
         }
     }
